@@ -9,8 +9,8 @@ import { Toaster } from 'react-hot-toast'
 import {authContext} from './context/AuthContext.js'
 import { useContext } from 'react';
 
-axios.defaults.baseURL = "http://localhost:5000/api/"
-axios.defaults.withCredentials = true
+// axios.defaults.baseURL = "http://localhost:5000/api/"
+// axios.defaults.withCredentials = true
 
 function App() {
   const { authUser,setAuthUser } = useContext(authContext)
