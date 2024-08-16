@@ -7,11 +7,13 @@ import connectDB from './config/db.js'
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 import { app,server } from './socket/socket.js'
+import path from 'path'
 
 dotenv.config()
 connectDB()
 
 const PORT = process.env.PORT
+const __dirname = path.resolve();
 
 const corsOptions = {
     origin: 'http://localhost:3000', // Replace with your client-side URL
@@ -31,5 +33,10 @@ app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
 app.use("/api/users",userRoutes)
 
+app.use(express.static(path.join(__dirname,"/frontend/build")))
+
+app.get("*",(req,res) => {
+  res.sendFile(path.join(__dirname,"frontend","build","index.html"))
+})
 
 server.listen(PORT,() => {console.log(`Listening at port ${PORT}`)})
