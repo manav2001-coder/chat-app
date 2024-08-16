@@ -16,7 +16,7 @@ const PORT = process.env.PORT
 const __dirname = path.resolve();
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // Replace with your client-side URL
+    origin: 'https://chat-app-og0l.onrender.com/', // Replace with your client-side URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
